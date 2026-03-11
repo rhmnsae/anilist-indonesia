@@ -747,7 +747,7 @@ input { font-family: inherit; }
 .footer { padding: 4rem 0 0; border-top: 1px solid var(--border); }
 .footer-inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
 }

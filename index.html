@@ -9,8 +9,11 @@
     content="Temukan jadwal tayang anime terbaru dan daftar anime terlengkap dalam bahasa Indonesia. Powered by MyAnimeList." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%232a2b38%22/><text x=%2250%22 y=%2270%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2260%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>A</text></svg>">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%232a2b38%22/><text x=%2250%22 y=%2270%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2260%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>A</text></svg>">
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -43,8 +46,7 @@
     <div class="container hero-content">
       <div class="hero-badge">Didukung oleh MyAnimeList</div>
       <h1 class="hero-title">Temukan Semua<br /><span class="gradient-text">Anime Favorit</span><br />Kamu di Sini</h1>
-      <p class="hero-desc">Jadwal tayang terlengkap, daftar anime terfavorit, dan informasi mendalam semua tersedia
-        gratis dalam bahasa Indonesia.</p>
+      <p class="hero-desc">Jadwal tayang terlengkap, daftar anime terfavorit, dan informasi dalam bahasa Indonesia.</p>
       <div class="hero-actions">
         <a href="#daftar" class="btn btn-primary">Jelajahi Anime</a>
         <a href="#jadwal" class="btn btn-outline">Lihat Jadwal</a>
@@ -242,6 +244,13 @@
           <li><a href="https://docs.api.jikan.moe/" target="_blank" rel="noopener">Dokumentasi API</a></li>
         </ul>
       </div>
+      <div class="footer-links">
+        <h4>Developer</h4>
+        <ul>
+          <li><a href="https://instagram.com/saeplll" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://github.com/rhmnsae" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
@@ -253,6 +262,39 @@
   <div class="toast" id="toast"></div>
 
   <script src="script.js"></script>
+
+  <!-- Anti-Inspect Element & Anti-Copy Script -->
+  <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Disable Keyboard Shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.onkeydown = function (e) {
+      if (e.keyCode == 123) { // F12
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // View Source
+        return false;
+      }
+    };
+
+    // DevTools Trap (Freezes browser if DevTools is opened)
+    setInterval(function () {
+      (function () {
+        return false;
+      }
+      ['constructor']('debugger')
+      ['call']());
+    }, 100);
+  </script>
 </body>
 
 </html>
