@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AniList Indonesia — Jadwal & Daftar Anime</title>
+  <meta name="description"
+    content="Temukan jadwal tayang anime terbaru dan daftar anime terlengkap dalam bahasa Indonesia. Powered by MyAnimeList." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%232a2b38%22/><text x=%2250%22 y=%2270%22 font-family=%22sans-serif%22 font-weight=%22bold%22 font-size=%2260%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>A</text></svg>">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo" id="nav-home-link">
+        <span class="logo-icon">A</span>
+        <span class="logo-text">Ani<strong>List</strong></span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#beranda" class="nav-link active" data-section="beranda">Beranda</a></li>
+        <li><a href="#jadwal" class="nav-link" data-section="jadwal">Jadwal</a></li>
+        <li><a href="#daftar" class="nav-link" data-section="daftar">Daftar Anime</a></li>
+        <li><a href="#musiman" class="nav-link" data-section="musiman">Musiman</a></li>
+        <li><a href="#populer" class="nav-link" data-section="populer">Terpopuler</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="beranda">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">Didukung oleh MyAnimeList</div>
+      <h1 class="hero-title">Temukan Semua<br /><span class="gradient-text">Anime Favorit</span><br />Kamu di Sini</h1>
+      <p class="hero-desc">Jadwal tayang terlengkap, daftar anime terfavorit, dan informasi mendalam semua tersedia
+        gratis dalam bahasa Indonesia.</p>
+      <div class="hero-actions">
+        <a href="#daftar" class="btn btn-primary">Jelajahi Anime</a>
+        <a href="#jadwal" class="btn btn-outline">Lihat Jadwal</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">25,000+</span>
+          <span class="stat-label">Judul Anime</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">Real-time</span>
+          <span class="stat-label">Data Terkini</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="section" id="jadwal">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Jadwal Tayang</h2>
+        <p class="section-subtitle">Anime yang tayang minggu ini, dikelompokkan per hari</p>
+      </div>
+      <div class="day-tabs" id="dayTabs">
+        <button class="day-tab active" data-day="monday">Senin</button>
+        <button class="day-tab" data-day="tuesday">Selasa</button>
+        <button class="day-tab" data-day="wednesday">Rabu</button>
+        <button class="day-tab" data-day="thursday">Kamis</button>
+        <button class="day-tab" data-day="friday">Jumat</button>
+        <button class="day-tab" data-day="saturday">Sabtu</button>
+        <button class="day-tab" data-day="sunday">Minggu</button>
+      </div>
+      <div class="schedule-grid" id="scheduleGrid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Memuat jadwal...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anime List Section -->
+  <section class="section section-alt" id="daftar">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Daftar Anime</h2>
+        <p class="section-subtitle">Telusuri koleksi anime terlengkap dari MyAnimeList</p>
+      </div>
+      <div class="filter-bar">
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input type="text" class="search-input" id="animeSearch" placeholder="Cari anime..." />
+        </div>
+        <div class="filter-controls">
+          <select class="filter-select" id="typeFilter">
+            <option value="">Semua Tipe</option>
+            <option value="tv">TV</option>
+            <option value="movie">Film</option>
+            <option value="ova">OVA</option>
+            <option value="ona">ONA</option>
+            <option value="special">Spesial</option>
+          </select>
+          <select class="filter-select" id="statusFilter">
+            <option value="">Semua Status</option>
+            <option value="airing">Sedang Tayang</option>
+            <option value="complete">Selesai</option>
+            <option value="upcoming">Akan Datang</option>
+          </select>
+          <select class="filter-select" id="ratingFilter">
+            <option value="">Semua Rating</option>
+            <option value="g">G — Semua Umur</option>
+            <option value="pg">PG — Anak-anak</option>
+            <option value="pg13">PG-13 — Remaja 13+</option>
+            <option value="r17">R — 17+</option>
+          </select>
+          <select class="filter-select" id="orderFilter">
+            <option value="score">Nilai Tertinggi</option>
+            <option value="popularity">Terpopuler</option>
+            <option value="rank">Peringkat</option>
+            <option value="title">Judul A-Z</option>
+            <option value="start_date">Terbaru</option>
+          </select>
+        </div>
+      </div>
+      <div class="anime-grid" id="animeGrid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Memuat daftar anime...</p>
+        </div>
+      </div>
+      <div class="pagination" id="animePagination"></div>
+    </div>
+  </section>
+
+  <!-- Seasonal Section -->
+  <section class="section" id="musiman">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Anime Musiman</h2>
+        <p class="section-subtitle">Anime yang tayang pada musim ini</p>
+      </div>
+      <div class="season-selector">
+        <select class="filter-select" id="seasonYear">
+          <!-- filled via JS -->
+        </select>
+        <select class="filter-select" id="seasonName">
+          <option value="winter">Winter (Januari)</option>
+          <option value="spring">Spring (April)</option>
+          <option value="summer">Summer (Juli)</option>
+          <option value="fall">Fall (Oktober)</option>
+        </select>
+        <button class="btn btn-primary btn-sm" id="loadSeasonBtn">Tampilkan</button>
+      </div>
+      <div class="anime-grid" id="seasonalGrid">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Memuat anime musiman...</p>
+        </div>
+      </div>
+      <div class="pagination" id="seasonalPagination"></div>
+    </div>
+  </section>
+
+  <!-- Top Anime Section -->
+  <section class="section section-alt" id="populer">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Anime Terpopuler</h2>
+        <p class="section-subtitle">Daftar anime dengan nilai dan popularitas tertinggi</p>
+      </div>
+      <div class="top-tabs">
+        <button class="top-tab active" data-type="bypopularity">Terpopuler</button>
+        <button class="top-tab" data-type="byScore">Nilai Terbaik</button>
+        <button class="top-tab" data-type="favorite">Favorit</button>
+        <button class="top-tab" data-type="airing">Sedang Tayang</button>
+      </div>
+      <div class="top-list" id="topList">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Memuat data...</p>
+        </div>
+      </div>
+      <div class="pagination" id="topPagination"></div>
+    </div>
+  </section>
+
+  <!-- Anime Detail Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="animeModal">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="modal-content" id="modalContent">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">A</span>
+          <span class="logo-text">Ani<strong>List</strong></span>
+        </a>
+        <p>Website jadwal dan daftar anime terlengkap berbahasa Indonesia. Data disediakan oleh MyAnimeList melalui
+          Jikan API.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#jadwal">Jadwal</a></li>
+          <li><a href="#daftar">Daftar Anime</a></li>
+          <li><a href="#musiman">Musiman</a></li>
+          <li><a href="#populer">Terpopuler</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Sumber Data</h4>
+        <ul>
+          <li><a href="https://myanimelist.net/" target="_blank" rel="noopener">MyAnimeList</a></li>
+          <li><a href="https://jikan.moe/" target="_blank" rel="noopener">Jikan API</a></li>
+          <li><a href="https://docs.api.jikan.moe/" target="_blank" rel="noopener">Dokumentasi API</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 AniList Indonesia.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
